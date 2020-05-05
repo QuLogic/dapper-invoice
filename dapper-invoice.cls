@@ -62,12 +62,11 @@
 
 \defaultfontfeatures{
     Ligatures = TeX,
-    Path      = ./Fonts/ }
+}
 
-\IfFileExists{./Fonts/OpenSans-Regular.ttf}{
-    \setmainfont[ BoldFont = OpenSans-Bold, ItalicFont = OpenSans-Italic ]{OpenSans-Regular}
-    \setsansfont[ BoldFont = OpenSans-Bold, ItalicFont = OpenSans-Italic ]{OpenSans-Regular}
-}{}
+\RequirePackage[defaultsans]{opensans}
+\setmainfont[ BoldFont = OpenSans-Bold, ItalicFont = OpenSans-Italic ]{OpenSans}
+\setsansfont[ BoldFont = OpenSans-Bold, ItalicFont = OpenSans-Italic ]{OpenSans}
 
 
 %%%%% Commands %%%%%
@@ -133,12 +132,12 @@
     \setcounter{colskipcount}{5}
     \setlength\LTleft{0pt}
     \setlength\LTright{0pt}
-    \begin{longtable}{c @{\hspace{1.5em}} p{.6\textwidth} r @{} l r r}
+    \begin{longtable}{c @{\hspace{1.5em}} p{.4\textwidth} @{\extracolsep{\fill}} r l r r}
     \hline
     \noalign{\smallskip}
     {\itemizationHeaderStyle Date} &
     {\itemizationHeaderStyle Description} &
-    \multicolumn{2}{l}{\itemizationHeaderStyle Hours} &
+    {\itemizationHeaderStyle Hours} &
     {\itemizationHeaderStyle Rate} &
     {\itemizationHeaderStyle Amount}
     \\
@@ -220,8 +219,7 @@
     \begin{minipage}[t]{.6\textwidth}
         \begin{itemize}[leftmargin=0pt, labelsep=1pt, itemsep=0pt] \itemizationRowStyle #4 \end{itemize}
     \end{minipage} &
-    {\itemizationRowStyle \@formatHoursLeft{#2}} &
-    {\itemizationRowStyle \@formatHoursRight{#2}} &
+    {\itemizationRowStyle #2} &
     {\itemizationRowStyle \currencysym#3} &
     {\itemizationRowStyle \currencysym\calcamount{#2}{#3}}
     \\

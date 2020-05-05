@@ -12,13 +12,15 @@
 
 \setmetadata{\me}{Your Biz}{\invoiceNo}{\clientName}
 
-\defaultfontfeatures{ Path = ./Fonts/ }
 \usepackage{fontawesome}
 
 \begin{document}
 
-\newfontface\mainLightItalic{OpenSans-LightItalic}
-\makeheader{Your\ \mainLightItalic Biz}{\invoiceNo}
+\newfontface{\mainLight}[%
+    Ligatures=TeX,
+    UprightFont={* Light},
+    ItalicFont={* Light Italic}]{Open Sans}
+\makeheader{Your\ \mainLight \textit{Biz}}{\invoiceNo}
 
 \twocolumnlayout{
     \begin{infoSection}
