@@ -95,7 +95,7 @@
         {\color{subduedColor} \today}
     \end{tabular}
 
-    \addvspace{8ex}
+    \addvspace{4ex}
 }
 
 \newcommand*{\duedate}[1]{%
@@ -127,6 +127,31 @@
 \newcommand*{\itemizationHeaderStyle}[0]{\normalsize\color{highlightColor}}
 
 \newcounter{colskipcount}
+
+\newenvironment{equipmentItemization}{
+    \setcounter{colskipcount}{5}
+    \setlength\LTleft{0pt}
+    \setlength\LTright{0pt}
+    \begin{longtable}{c @{\hspace{1.5em}} p{.4\textwidth} @{\extracolsep{\fill}} r l r r}
+    \hline
+    \noalign{\smallskip}
+    {\itemizationHeaderStyle Date} &
+    {\itemizationHeaderStyle Equipment} &
+    {\itemizationHeaderStyle Cost} &
+    {\itemizationHeaderStyle Rate} &
+    {\itemizationHeaderStyle Amount}
+    \\
+    \noalign{\smallskip}
+    \hline
+    \noalign{\bigskip}
+    \endhead
+    \noalign{\bigskip}
+    \hline
+    \endfoot
+    \endlastfoot
+}{
+    \end{longtable}
+}
 
 \newenvironment{hoursItemization}{
     \setcounter{colskipcount}{5}
