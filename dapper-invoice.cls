@@ -128,6 +128,31 @@
 
 \newcounter{colskipcount}
 
+\newenvironment{expenseItemization}{
+    \setcounter{colskipcount}{5}
+    \setlength\LTleft{0pt}
+    \setlength\LTright{0pt}
+    \begin{longtable}{c @{\hspace{1.5em}} p{.4\textwidth} @{\extracolsep{\fill}} r l r r}
+    \hline
+    \noalign{\smallskip}
+    {\itemizationHeaderStyle Date} &
+    {\itemizationHeaderStyle Description} &
+    {\itemizationHeaderStyle Rate} &
+    {\itemizationHeaderStyle Cost} &
+    {\itemizationHeaderStyle Amount}
+    \\
+    \noalign{\smallskip}
+    \hline
+    \noalign{\bigskip}
+    \endhead
+    \noalign{\bigskip}
+    \hline
+    \endfoot
+    \endlastfoot
+}{
+    \end{longtable}
+}
+
 \newenvironment{equipmentItemization}{
     \setcounter{colskipcount}{5}
     \setlength\LTleft{0pt}
